@@ -25,11 +25,13 @@ export default function GifGrid({ category }){
     return (
         <>
             <h2> { category } </h2>
-            {
-                images.map(( img )=> (
-                    <GifGridItem key={ img.id } { ...img } />
-                ))
-            }
+            <div className='card-grid'>
+                {
+                    images.map(( img )=> (
+                        <GifGridItem key={ img.id } { ...img } />
+                    ))
+                }
+            </div>
         </>
     )
 }
