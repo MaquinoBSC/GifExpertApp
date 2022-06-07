@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import GifGridItem from './GifGridItem';
 
 export default function GifGrid({ category }){
-    const [counter, setcounter] = useState(0);
+    const [ images, setImages ]= useState( [] );
 
     useEffect(()=> {
         getGifs();
@@ -18,14 +19,17 @@ export default function GifGrid({ category }){
                 'url': img.images.downsized_medium.url,
             }
         });
-        console.log(gifs);
+        setImages( gifs );
     }
 
     return (
         <>
             <h2> { category } </h2>
-            <p>{ counter }</p>
-            <button onClick={ ()=> setcounter( counter + 1 ) }></button>
+            {
+                images.map(( img )=> (
+                    <GifGridItem key={ img.id } { ...img } />
+                ))
+            }
         </>
     )
 }
