@@ -9,7 +9,7 @@ export default function GifGrid({ category }){
         <>
             <h2 className="animate__animated animate__fadeInTopLeft"> { category } </h2>
             {
-                loading && <p className='animate__animated animate__flash'>Loading...</p>
+                loading && <p className='animate__animated animate__flash'>Cargando...</p>
             }
             <div className='card-grid'>
                 {
