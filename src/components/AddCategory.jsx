@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const AddCategory = (props) => {
-    const { setCategories } = props;
+    const { onNewCategory } = props;
     const [ inputValue, setInputValue ] = useState('');
 
     const onInputChange = ({ target }) => {
@@ -13,7 +13,7 @@ const AddCategory = (props) => {
 
         if(inputValue.trim().length <= 1) return;
 
-        setCategories((categories) => [ inputValue, ...categories ]);
+        onNewCategory( inputValue.trim() );
         setInputValue('');
     }
  

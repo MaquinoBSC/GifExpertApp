@@ -5,11 +5,15 @@ import AddCategory from "./components/AddCategory";
 const GifExpertApp = () => {
     const [ categories, setCategories ] = useState(['js', 'node']);
 
+    const onAddCategory = (value) => {
+        setCategories([ value, ...categories ]);
+    }
+
     return (
         <>
             <h1>Gift Expert App</h1>
 
-            <AddCategory setCategories={ setCategories } />
+            <AddCategory onNewCategory={ onAddCategory } />
 
             <ol>
                 { categories.map((category) => <li key={ category }>{ category }</li>)}
