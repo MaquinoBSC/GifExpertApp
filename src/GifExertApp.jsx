@@ -6,6 +6,8 @@ const GifExpertApp = () => {
     const [ categories, setCategories ] = useState(['js', 'node']);
 
     const onAddCategory = (value) => {
+        if(categories.includes(value)) return
+        
         setCategories([ value, ...categories ]);
     }
 
