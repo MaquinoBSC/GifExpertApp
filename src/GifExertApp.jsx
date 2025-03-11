@@ -1,13 +1,14 @@
 import { useState } from "react";
 
 import AddCategory from "./components/AddCategory";
+import GiftGrid from "./components/GiftGrid";
 
 const GifExpertApp = () => {
     const [ categories, setCategories ] = useState(['js', 'node']);
 
     const onAddCategory = (value) => {
         if(categories.includes(value)) return
-        
+
         setCategories([ value, ...categories ]);
     }
 
@@ -17,9 +18,8 @@ const GifExpertApp = () => {
 
             <AddCategory onNewCategory={ onAddCategory } />
 
-            <ol>
-                { categories.map((category) => <li key={ category }>{ category }</li>)}
-            </ol>
+            { categories.map((category) => <GiftGrid key={ category } category={ category } /> )}
+        
         </>
     )
 }
